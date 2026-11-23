@@ -45,6 +45,8 @@ pwsh -File $env:USERPROFILE\.claude\hooks\sidepulse\Set-DotState.ps1 -State clos
 - A working state expires after 30 minutes without a tool call, so a crashed session can't hold the light blue. `-WorkingTtlMinutes` changes that.
 - Waiting and done states expire after 12 hours. `-IdleTtlHours` changes that.
 - Every write is 64 bytes, in place. The Dot blinks red when it reads a half-written or shorter program.
+- Each program is written twice and flushed to the device. After a single write the Dot kept showing the previous program until the next write arrived.
+- Each call adds a line to `dot.log` in the same folder, with the session, the hook event and the state shown. The log is deleted when it passes 1 MB.
 - The script does nothing when the Dot is unplugged.
 
 ## Limits

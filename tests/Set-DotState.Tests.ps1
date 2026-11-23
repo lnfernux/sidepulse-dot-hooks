@@ -66,7 +66,7 @@ Describe 'Set-DotState' {
 
     It 'keeps an unsafe session id inside the state folder' {
         Invoke-TestDotState working '..\..\escape'
-        (Get-ChildItem -LiteralPath $script:StateDir).Name | Should -Be 'unknown.state'
+        (Get-ChildItem -LiteralPath $script:StateDir -Filter '*.state').Name | Should -Be 'unknown.state'
     }
 
     It 'does nothing when the Dot is not mounted' {
