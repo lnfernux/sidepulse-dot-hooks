@@ -1,0 +1,83 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "C:/Program Files/PowerShell/7/pwsh.exe",
+            "args": ["-NoLogo", "-NoProfile", "-NonInteractive", "-File", "C:/Users/<you>/.claude/hooks/sidepulse/Set-DotState.ps1", "-State", "working"],
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "C:/Program Files/PowerShell/7/pwsh.exe",
+            "args": ["-NoLogo", "-NoProfile", "-NonInteractive", "-File", "C:/Users/<you>/.claude/hooks/sidepulse/Set-DotState.ps1", "-State", "working"],
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "permission_prompt|elicitation_dialog|elicitation_url_dialog",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "C:/Program Files/PowerShell/7/pwsh.exe",
+            "args": ["-NoLogo", "-NoProfile", "-NonInteractive", "-File", "C:/Users/<you>/.claude/hooks/sidepulse/Set-DotState.ps1", "-State", "waiting"],
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "AskUserQuestion",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "C:/Program Files/PowerShell/7/pwsh.exe",
+            "args": ["-NoLogo", "-NoProfile", "-NonInteractive", "-File", "C:/Users/<you>/.claude/hooks/sidepulse/Set-DotState.ps1", "-State", "waiting"],
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "C:/Program Files/PowerShell/7/pwsh.exe",
+            "args": ["-NoLogo", "-NoProfile", "-NonInteractive", "-File", "C:/Users/<you>/.claude/hooks/sidepulse/Set-DotState.ps1", "-State", "done"],
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "C:/Program Files/PowerShell/7/pwsh.exe",
+            "args": ["-NoLogo", "-NoProfile", "-NonInteractive", "-File", "C:/Users/<you>/.claude/hooks/sidepulse/Set-DotState.ps1", "-State", "closed"],
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

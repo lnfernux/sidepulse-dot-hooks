@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "hooks": {
+    "userPromptSubmitted": [
+      {
+        "type": "command",
+        "powershell": "pwsh -NoLogo -NoProfile -NonInteractive -File C:/Users/<you>/.claude/hooks/sidepulse/Set-DotState.ps1 -State working",
+        "timeoutSec": 10
+      }
+    ],
+    "postToolUse": [
+      {
+        "type": "command",
+        "powershell": "pwsh -NoLogo -NoProfile -NonInteractive -File C:/Users/<you>/.claude/hooks/sidepulse/Set-DotState.ps1 -State working",
+        "timeoutSec": 10
+      }
+    ],
+    "notification": [
+      {
+        "type": "command",
+        "matcher": "permission_prompt|elicitation_dialog",
+        "powershell": "pwsh -NoLogo -NoProfile -NonInteractive -File C:/Users/<you>/.claude/hooks/sidepulse/Set-DotState.ps1 -State waiting",
+        "timeoutSec": 10
+      }
+    ],
+    "agentStop": [
+      {
+        "type": "command",
+        "powershell": "pwsh -NoLogo -NoProfile -NonInteractive -File C:/Users/<you>/.claude/hooks/sidepulse/Set-DotState.ps1 -State done",
+        "timeoutSec": 10
+      }
+    ],
+    "sessionEnd": [
+      {
+        "type": "command",
+        "powershell": "pwsh -NoLogo -NoProfile -NonInteractive -File C:/Users/<you>/.claude/hooks/sidepulse/Set-DotState.ps1 -State closed",
+        "timeoutSec": 10
+      }
+    ]
+  }
+}
